@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/student_page.css">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+    <!-- <script src="js/jquery.min.js"></script> -->
+</head>
+
+<body>
+    <div id="container">
+        <div id="toDisplay"></div>
+    </div>
+
+    <script type="riot/tag" src="../answer page/tags/answer-page.tag"></script>
+    <script type="riot/tag" src="./tags/student-main-page.tag"></script>
+    <script type="riot/tag" src="./tags/folder-container.tag"></script>
+    <script type="riot/tag" src="./tags/hightlighted-learning-objectives.tag"></script>
+    <script type="riot/tag" src="./tags/hightlighted-learning-objective.tag"></script>
+    <script type="riot/tag" src="./tags/folder.tag"></script>
+    <script type="riot/tag" src="./tags/learning-objectives.tag"></script>
+    <!-- Include riot.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.15/riot+compiler.min.js"></script>
+    <script src="js/student_page.js"></script>
+    <!-- Entry point to app -->
+    <script type="text/javascript">
+    // Parse Query
+    var hightlightedLearningObjectivesList = [
+        {learningObjectiveID:'1.1',learningObjective: '1.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+        {learningObjectiveID:'1.2',learningObjective: '1.2 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+        {learningObjectiveID:'1.3',learningObjective: '1.3 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+        {learningObjectiveID:'2.1',learningObjective: '2.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+        {learningObjectiveID:'3.3',learningObjective: '3.3 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"}
+    ];
+    var foldersList = [
+        {chapterID: 1, title: "1 - Have Fun with Java"},
+        {chapterID: 2, title: "2 - Basic Java Syntax"},
+        {chapterID: 3, title: "3 - Interact with Users"},
+        {chapterID: 4, title: "4 - What's Object Oriented?"},
+        {chapterID: 5, title: "5 - Constructor and If Statement"},
+        {chapterID: 6, title: "6 - Methods"},
+        {chapterID: 7, title: "7 - Repetitive Work & Loop"},
+        {chapterID: 8, title: "8 - A Group of Same Things - Array & Arraylist"}
+    ];
+
+    var learningObjectivesList = {
+        "No1": [{learningObjectiveID:'1.1',learningObjective: '1.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'1.2',learningObjective: '1.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'1.3',learningObjective: '1.3 - test test test',deadline:"Nan",isLock:true}],
+        "No2": [{learningObjectiveID:'2.1',learningObjective: '2.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'2.2',learningObjective: '2.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'2.3',learningObjective: '2.3 - test test test',deadline:"Nan",isLock:true}],
+        "No3": [{learningObjectiveID:'3.1',learningObjective: '3.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'3.2',learningObjective: '3.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'3.3',learningObjective: '3.3 - test test test',deadline:"Nan",isLock:true}],
+        "No4": [{learningObjectiveID:'4.1',learningObjective: '4.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'4.2',learningObjective: '4.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'4.3',learningObjective: '4.3 - test test test',deadline:"Nan",isLock:true}],
+        "No5": [{learningObjectiveID:'5.1',learningObjective: '5.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'5.2',learningObjective: '5.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'5.3',learningObjective: '5.3 - test test test',deadline:"Nan",isLock:true}],
+        "No6": [{learningObjectiveID:'6.1',learningObjective: '6.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'6.2',learningObjective: '6.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'6.3',learningObjective: '6.3 - test test test',deadline:"Nan",isLock:true}],
+        "No7": [{learningObjectiveID:'7.1',learningObjective: '7.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'7.2',learningObjective: '7.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'7.3',learningObjective: '7.3 - test test test',deadline:"Nan",isLock:true}],
+        "No8": [{learningObjectiveID:'8.1',learningObjective: '8.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM",isLock:false},
+                {learningObjectiveID:'8.2',learningObjective: '8.2 - test test test',deadline:"Nan",isLock:true},
+                {learningObjectiveID:'8.3',learningObjective: '8.3 - test test test',deadline:"Nan",isLock:true}],
+    };
+
+    riot.mount('folder-container', {
+        folders: foldersList,
+        hightlightedLearningObjectives: hightlightedLearningObjectivesList,
+        learningObjectives: learningObjectivesList,
+    });
+    riot.mount("#toDisplay","student-main-page");
+
+    riot.route('LO/*', function(learningObjective) {
+        // console.log(learningObjective);
+        riot.mount("#toDisplay","answer-page",{
+            learningObjective: learningObjective,
+        });
+    });
+
+    riot.route('', function(learningObjective) {
+        riot.mount("#toDisplay","student-main-page");
+    });
+    
+    riot.route.start(true);
+    </script>
+</body>
+
+</html>
