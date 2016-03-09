@@ -1,3 +1,33 @@
+Parse.initialize("3m77BurTydmWVyeCR1wOFRMU7JbTYt2s4VECxAQN", "6Jdeazgr93B23jsoeZafhPyCKexBzIqeKsXtdH7n");
+
+// var HighlightedLearningObjectives = Parse.Object.extend({
+//     className: "HighlightedLearningObjectives"
+// });
+
+
+// var highlightedLearningObjectives = [
+//         {learningObjectiveID:'1.1',learningObjective: '1.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+//         {learningObjectiveID:'1.2',learningObjective: '1.2 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+//         {learningObjectiveID:'1.3',learningObjective: '1.3 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+//         {learningObjectiveID:'2.1',learningObjective: '2.1 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"},
+//         {learningObjectiveID:'3.3',learningObjective: '3.3 - test test test',deadline:"Due on: December 08, 2016 07:00 PM"}
+//     ];
+
+// for (var i = 0; i < highlightedLearningObjectives.length; i++) {
+//     var myHighlightedLearningObjectives = new HighlightedLearningObjectives();
+//     myHighlightedLearningObjectives.set(highlightedLearningObjectives[i]);
+
+
+//     myHighlightedLearningObjectives.save({
+//         success: function() {
+//             console.log('HighlightedLearningObjectives successfully saved');
+//         },
+//         error: function() {
+//             console.log('HighlightedLearningObjectives saved fail');
+//         }
+//     });
+// }
+
 $(".header").click(function () {
 
     $header = $(this);
