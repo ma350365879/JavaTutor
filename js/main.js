@@ -1,13 +1,11 @@
 // Must initialize parse with your app credentials
 // App ID , JS Client Key ID
-Parse.initialize("8shSBt0nS2avoZGq1G9atK7s6QQTh2KpEeNAPWR4", "Syk8Nz51z5GaXqIeZyJOgl0cfRYb4H3Db7aOQO13");
+Parse.initialize("3m77BurTydmWVyeCR1wOFRMU7JbTYt2s4VECxAQN", "6Jdeazgr93B23jsoeZafhPyCKexBzIqeKsXtdH7n");
 
 // As soon as this script is loaded, we can start gathering analytics
 Parse.Analytics.track('pageLoad', {
 	'page': 'objects'
 });
-
-
 
 var updateLoginStatus = function() {
 	var user = Parse.User.current();
@@ -34,8 +32,6 @@ $('#registerBtn').click(function(event) {
 	var first = $('#first').val();
 	var last = $('#last').val();
 	var email = $('#email').val();
-	var gender = $('input[name="gender"]:checked').val();
-
 
 	// User attributes... just the prev values wrapped in an object
 	var userAttributes = {
@@ -43,8 +39,7 @@ $('#registerBtn').click(function(event) {
 		password: password,
 		first: first,
 		last: last,
-		email: email,
-		gender: gender
+		email: email
 	};
 
 	console.log(userAttributes);
